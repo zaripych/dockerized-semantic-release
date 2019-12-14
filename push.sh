@@ -1,3 +1,4 @@
+#!/bin/bash
 true \
   && docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD \
   && docker tag semantic-release zaripych/semantic-release \

@@ -1,3 +1,4 @@
+#!/bin/bash
 true \
   && SR_VERSION=$(npm view semantic-release@beta version) \
   && SR_EXEC_VERSION=$(npm view @semantic-release/exec@beta version) \
