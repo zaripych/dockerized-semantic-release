@@ -16,3 +16,9 @@ jobs:
 
       - name: Build
         run: ./build-all.sh
+
+      - name: Release
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: ./push.sh
