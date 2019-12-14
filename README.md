@@ -11,13 +11,13 @@ Included plugins:
 Latest build version:
 
 ```sh
-$ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti semantic-release
+$ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych/semantic-release
 ```
 
 for `@beta`:
 
 ```sh
-$ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti semantic-release:beta
+$ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych/semantic-release:beta
 ```
 
 > Please note that `semantic-release` will require access to environment variables specific to your CI environment. Have a look at https://github.com/pvdlg/env-ci to understand which environment variables should be shared for your specific CI.
@@ -34,6 +34,12 @@ docker run --rm -v $(pwd):/opt/cwd -ti \
   --env GH_TOKEN \
   ${GITHUB_VARS[@]/#/"--env "} \
   ${TRAVIS_VARS[@]/#/"--env "} \
-  semantic-release \
+  zaripych/semantic-release \
   semantic-release $@
+```
+
+which later can be run as:
+
+```sh
+./semant-release.sh --dry-run
 ```
