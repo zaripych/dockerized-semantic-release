@@ -6,6 +6,11 @@ Included plugins:
 
 - `@semantic-release/exec`
 
+Included packages
+
+- Docker CLI, for being able to build docker images as part of release process
+- bash, for @semantic-release/exec to work
+
 # Running
 
 Latest build version:
@@ -22,23 +27,19 @@ $ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych
 
 > Please note that `semantic-release` will require access to environment variables specific to your CI environment. Have a look at https://github.com/pvdlg/env-ci to understand which environment variables should be shared for your specific CI.
 
-A little bash script to help with GitHub Actions or Travis:
+## Building Docker images using `semantic-release`
+
+In order to use docker inside docker the recommended approach is to pass in `/var/run/docker.sock` when running:
 
 ```sh
-#!/bin/bash
-set -x
-GITHUB_VARS=( $(env | grep GITHUB_) )
-TRAVIS_VARS=( $(env | grep TRAVIS_) )
-docker run --rm -v $(pwd):/opt/cwd -ti \
-  --env NPM_TOKEN \
-  --env GH_TOKEN \
-  ${GITHUB_VARS[@]/#/"--env "} \
-  ${TRAVIS_VARS[@]/#/"--env "} \
-  zaripych/semantic-release \
-  semantic-release $@
+$ docker run --rm -v $(pwd):/opt/cwd -v /var/run/docker.sock:/var/run/docker.sock -ti zaripych/semantic-release:beta
 ```
 
-which later can be run as:
+This way the docker-cli within contain will have access to the host docker daemon.
+
+## Helper Scripts
+
+See `./semantic-release.sh` in the repository as an example script that can be used to run `semantic-release`.
 
 ```sh
 ./semant-release.sh --dry-run
