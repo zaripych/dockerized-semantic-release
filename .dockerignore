@@ -1,11 +1,6 @@
 deps-stable/node_modules
 deps-beta/node_modules
-alias.sh
-build-all.sh
-build-beta.sh
-build.sh
-push.sh
+examples
+scripts
 README.md
-semantic-release-beta.sh
-semantic-release.sh
 Dockerfile

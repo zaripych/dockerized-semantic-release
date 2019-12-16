@@ -37,10 +37,6 @@ $ docker run --rm -v $(pwd):/opt/cwd -v /var/run/docker.sock:/var/run/docker.soc
 
 This way the docker-cli within contain will have access to the host docker daemon.
 
-## Helper Scripts
+## Examples
 
-See `./semantic-release.sh` in the repository as an example script that can be used to run `semantic-release`.
-
-```sh
-./semant-release.sh --dry-run
-```
+See `./examples` directory for example scripts/aliases that can be used to run `semantic-release`.

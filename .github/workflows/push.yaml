@@ -15,10 +15,10 @@ jobs:
           fetch-depth: 1
 
       - name: Build
-        run: ./build-all.sh
+        run: ./scripts/build-all.sh
 
       - name: Release
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: ./push.sh
+        run: ./scripts/push.sh
