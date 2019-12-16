@@ -1,7 +1,7 @@
 #!/bin/bash
 true \
-  && STABLE_VERSION=$(node -p 'require("./deps-stable/package.json").dependencies["semantic-release"]') \
-  && BETA_VERSION=$(node -p 'require("./deps-beta/package.json").dependencies["semantic-release"]') \
+  && STABLE_VERSION=$(node -p 'require("../deps-stable/package.json").dependencies["semantic-release"]') \
+  && BETA_VERSION=$(node -p 'require("../deps-beta/package.json").dependencies["semantic-release"]') \
   && docker login -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD \
   && docker tag semantic-release zaripych/semantic-release \
   && docker tag semantic-release zaripych/semantic-release:$STABLE_VERSION \
