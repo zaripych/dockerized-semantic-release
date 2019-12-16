@@ -5,6 +5,7 @@ TRAVIS_VARS=( $(env | grep TRAVIS_) )
 docker run --rm -v $(pwd):/opt/cwd -ti \
   --env NPM_TOKEN \
   --env GH_TOKEN \
+  -v /var/run/docker.sock:/var/run/docker.sock \
   ${GITHUB_VARS[@]/#/"--env "} \
   ${TRAVIS_VARS[@]/#/"--env "} \
   zaripych/semantic-release \
