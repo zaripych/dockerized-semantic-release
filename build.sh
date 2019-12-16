@@ -1,6 +1,6 @@
 #!/bin/bash
 true \
-  && docker build --squash . \
+  && docker build . \
     -t semantic-release \
     --build-arg DEPS=./deps-stable \
   && true
