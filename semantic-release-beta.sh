@@ -7,5 +7,5 @@ docker run --rm -v $(pwd):/opt/cwd -ti \
   --env GH_TOKEN \
   ${GITHUB_VARS[@]/#/"--env "} \
   ${TRAVIS_VARS[@]/#/"--env "} \
-  semantic-release:beta \
+  zaripych/semantic-release:beta \
   semantic-release $@

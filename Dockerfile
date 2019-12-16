@@ -1,18 +1,17 @@
 FROM node:alpine
-LABEL description="Docker image for https://semantic-release.gitbook.io/semantic-release/"
 
-ARG ARG_SR_VERSION=''
-ARG ARG_SR_EXEC_VERSION=''
+ARG DEPS="./deps-stable"
 
-ENV SR_VERSION=$ARG_SR_VERSION SR_EXEC_VERSION=$ARG_SR_EXEC_VERSION
+COPY ${DEPS}/package-lock.json /opt/semantic-release/package-lock.json
+COPY ${DEPS}/package.json /opt/semantic-release/package.json
 
 RUN true \
-  && echo "Installing semantic-release$SR_VERSION and @semantic-release/exec$SR_EXEC_VERSION" \
-  && apk --no-cache add git openssh \
-  && npm install -g \
-    semantic-release$SR_VERSION \
-    @semantic-release/exec$SR_EXEC_VERSION \
+  && apk --no-cache add git openssh bash docker-cli \
+  && ls /opt/semantic-release \ 
+  && cd /opt/semantic-release \
+  && npm install --production \
   && npm cache clean --force \
+  && ln -s /opt/semantic-release/node_modules/.bin/semantic-release /usr/bin/semantic-release \
   && mkdir /opt/cwd \
   && true
 

@@ -1,0 +1,9 @@
+{
+  "name": "semantic-release",
+  "main:": "noop.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "@semantic-release/exec": "3.3.8",
+    "semantic-release": "15.13.31"
+  }
+}
