@@ -17,6 +17,5 @@ RUN true \
 
 ENV PATH="/opt/cwd/node_modules/.bin:$PATH"
 
-USER node
 WORKDIR /opt/cwd
 CMD [ "semantic-release" ]
