@@ -3,7 +3,7 @@
   "main:": "noop.js",
   "version": "1.0.0",
   "dependencies": {
-    "@semantic-release/exec": "4.0.0",
+    "@semantic-release/exec": "5.0.0",
     "semantic-release": "16.0.1"
   }
 }
