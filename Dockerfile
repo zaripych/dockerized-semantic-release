@@ -6,7 +6,7 @@ COPY ${DEPS}/package-lock.json /opt/semantic-release/package-lock.json
 COPY ${DEPS}/package.json /opt/semantic-release/package.json
 
 RUN true \
-  && apk --no-cache add git openssh bash docker-cli \
+  && apk --no-cache add git git-lfs openssh bash docker-cli \
   && ls /opt/semantic-release \ 
   && cd /opt/semantic-release \
   && npm install --production \
