@@ -1,6 +1,6 @@
 # Docker image for semantic-release
 
-Docker image for [semantic-release](https://semantic-release.gitbook.io/semantic-release/) with embedded plugins and `semantic-release@beta`.
+Docker image for [semantic-release](https://semantic-release.gitbook.io/semantic-release/) with embedded plugins.
 
 Included plugins:
 
@@ -19,12 +19,6 @@ Latest build version:
 $ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych/semantic-release
 ```
 
-for `@beta`:
-
-```sh
-$ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych/semantic-release:beta
-```
-
 > Please note that `semantic-release` will require access to environment variables specific to your CI environment. Have a look at https://github.com/pvdlg/env-ci to understand which environment variables should be shared for your specific CI.
 
 ## Building Docker images using `semantic-release`
@@ -32,7 +26,7 @@ $ docker run --rm -v $(pwd):/opt/cwd --env NPM_TOKEN --env GH_TOKEN -ti zaripych
 In order to use docker inside docker the recommended approach is to pass in `/var/run/docker.sock` when running:
 
 ```sh
-$ docker run --rm -v $(pwd):/opt/cwd -v /var/run/docker.sock:/var/run/docker.sock -ti zaripych/semantic-release:beta
+$ docker run --rm -v $(pwd):/opt/cwd -v /var/run/docker.sock:/var/run/docker.sock -ti zaripych/semantic-release
 ```
 
 This way the docker-cli within contain will have access to the host docker daemon.

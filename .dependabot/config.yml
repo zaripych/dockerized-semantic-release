@@ -7,11 +7,3 @@ update_configs:
       prefix: "fix"
       prefix_development: "chore"
       include_scope: true
-
-  - package_manager: "javascript"
-    directory: "/deps-beta"
-    update_schedule: "live"
-    commit_message:
-      prefix: "fix"
-      prefix_development: "chore"
-      include_scope: true

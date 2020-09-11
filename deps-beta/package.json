@@ -1,9 +1,0 @@
-{
-  "name": "semantic-release",
-  "main:": "noop.js",
-  "version": "1.0.0",
-  "dependencies": {
-    "@semantic-release/exec": "beta",
-    "semantic-release": "beta"
-  }
-}
