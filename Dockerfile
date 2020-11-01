@@ -9,6 +9,7 @@ RUN true \
   && apk --no-cache add git git-lfs openssh bash docker-cli \
   && ls /opt/semantic-release \ 
   && cd /opt/semantic-release \
+  && npm install -g npm \
   && npm install --production \
   && npm cache clean --force \
   && ln -s /opt/semantic-release/node_modules/.bin/semantic-release /usr/bin/semantic-release \
